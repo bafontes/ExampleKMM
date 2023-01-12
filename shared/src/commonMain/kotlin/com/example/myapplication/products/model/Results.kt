@@ -3,7 +3,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Results(
-
     @SerialName("id") var id: String? = null,
     @SerialName("status") var status: String? = null,
     @SerialName("domain_id") var domainId: String? = null,
@@ -14,5 +13,4 @@ data class Results(
     @SerialName("pictures") var pictures: ArrayList<Pictures> = arrayListOf(),
     @SerialName("parent_id") var parentId: String? = null,
     @SerialName("children_ids") var childrenIds: ArrayList<String> = arrayListOf()
-
 )

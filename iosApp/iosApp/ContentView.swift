@@ -29,8 +29,19 @@ struct ContentView: View {
 extension ContentView {
     class ViewModel: ObservableObject {
         var products: [Product] = [.init(id: 1, name: "hola"), .init(id: 2, name: "como"), .init(id: 3, name: "estas")]
+        let service = SearchProductsApi()
         init() {
-
+            service.search(query: "iphone 12") { productsSearch, error in
+                DispatchQueue.main.async {
+                    if let productsSearch = productsSearch?.results {
+                       for product in productsSearch {
+                           print(product.name)
+                       }
+                    } else {
+                        print(error?.localizedDescription ?? "error")
+                    }
+                }
+            }
 
 //            Greeting().greeting { greeting, error in
 //                DispatchQueue.main.async {
