@@ -8,5 +8,5 @@ data class Attributes(
     @SerialName("name") var name: String? = null,
     @SerialName("value_id") var valueId: String? = null,
     @SerialName("value_name") var valueName: String? = null,
-    @SerialName("values") var values    : ArrayList<Values> = arrayListOf()
+    @SerialName("values") var values    : ArrayList<Values> = arrayListOf<Values>()
 )
