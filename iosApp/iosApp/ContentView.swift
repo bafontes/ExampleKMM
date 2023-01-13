@@ -18,23 +18,26 @@ struct ContentView: View {
                     }).padding(.top, -30)
                 }
             }.frame(height: 150)
-            List {
-                ForEach(self.viewModel.products, id: \.self) { item in
-                    HStack {
-                        if #available(iOS 15.0, *) {
-                            AsyncImage(url: URL(string: item.pictures[0].url ?? ""), content: { image in
-                                image.resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: 300, maxHeight: 100)
-                            },
-                            placeholder: {
-                                ProgressView()
-                            })
+            ScrollView {
+                LazyVStack {
+                    ForEach(self.viewModel.products, id: \.self) { item in
+                        HStack {
+                            if #available(iOS 15.0, *) {
+                                AsyncImage(url: URL(string: item.pictures[0].url ?? ""), content: { image in
+                                    image.resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 300, maxHeight: 200)
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                })
+                            }
+                            Text(item.name ?? "")
+                                .fontWeight(.bold)
+                                .padding(.trailing, 50)
                         }
-                        Text(item.name ?? "")
-                            .fontWeight(.bold)
+                        Spacer()
                     }
-                    Spacer()
                 }
             }
         }
