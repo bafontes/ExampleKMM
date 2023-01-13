@@ -10,7 +10,7 @@ data class Results(
     @SerialName("name") var name: String? = null,
     @SerialName("main_features") var mainFeatures: ArrayList<String> = arrayListOf<String>(),
     @SerialName("attributes") var attributes: ArrayList<Attributes> = arrayListOf<Attributes>(),
-    @SerialName("pictures") var pictures: ArrayList<Pictures> = arrayListOf<Pictures>(),
+    @SerialName("pictures") var pictures: List<Pictures> = listOf<Pictures>(),
     @SerialName("parent_id") var parentId: String? = null,
     @SerialName("children_ids") var childrenIds: ArrayList<String> = arrayListOf<String>()
 
